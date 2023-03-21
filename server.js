@@ -10,10 +10,10 @@ app.use(express.urlencoded({ extended: true }))
 const viewsDir = path.join(__dirname, 'views')
 app.use(express.static(viewsDir))
 app.use(express.static(path.join(__dirname, './public')))
-app.use(express.static(path.join(__dirname, '../images')))
-app.use(express.static(path.join(__dirname, '../media')))
-app.use(express.static(path.join(__dirname, '../../weights')))
-app.use(express.static(path.join(__dirname, '../../dist')))
+// app.use(express.static(path.join(__dirname, '../images')))
+// app.use(express.static(path.join(__dirname, '../media')))
+app.use(express.static(path.join(__dirname, './weights')))
+app.use(express.static(path.join(__dirname, './dist')))
 
 app.get('/', (req, res) => res.redirect('/webcam_face_landmark_detection'))
 app.get('/webcam_face_detection', (req, res) => res.sendFile(path.join(viewsDir, 'webcamFaceDetection.html')))
@@ -35,11 +35,11 @@ app.post('/fetch_external_image', async (req, res) => {
   }
 })
 
-app.listen(3500, () => console.dir({
+app.listen(3000, () => console.dir({
   author : "M.RIZKI ISWANTO <muhammadrzki96@gmail.com>",
   alias : "REXY4",
   message : "face recognation",
-  listen : "running on port http://localhost:3500"
+  listen : "running on port http://localhost:3000"
 }))
 
 function request(url, returnBuffer = true, timeout = 10000) {
