@@ -16,20 +16,10 @@ app.use(express.static(path.join(__dirname, '../../weights')))
 app.use(express.static(path.join(__dirname, '../../dist')))
 
 app.get('/', (req, res) => res.redirect('/webcam_face_landmark_detection'))
-app.get('/age_and_gender_recognition', (req, res) => res.sendFile(path.join(viewsDir, 'ageAndGenderRecognition.html')))
-app.get('/face_extraction', (req, res) => res.sendFile(path.join(viewsDir, 'faceExtraction.html')))
-app.get('/face_recognition', (req, res) => res.sendFile(path.join(viewsDir, 'faceRecognition.html')))
-app.get('/video_face_tracking', (req, res) => res.sendFile(path.join(viewsDir, 'videoFaceTracking.html')))
 app.get('/webcam_face_detection', (req, res) => res.sendFile(path.join(viewsDir, 'webcamFaceDetection.html')))
 app.get('/webcam_face_landmark_detection', (req, res) => res.sendFile(path.join(viewsDir, 'webcamFaceLandmarkDetection.html')))
 app.get('/webcam_face_expression_recognition', (req, res) => res.sendFile(path.join(viewsDir, 'webcamFaceExpressionRecognition.html')))
 app.get('/webcam_age_and_gender_recognition', (req, res) => res.sendFile(path.join(viewsDir, 'webcamAgeAndGenderRecognition.html')))
-app.get('/bbt_face_landmark_detection', (req, res) => res.sendFile(path.join(viewsDir, 'bbtFaceLandmarkDetection.html')))
-app.get('/bbt_face_similarity', (req, res) => res.sendFile(path.join(viewsDir, 'bbtFaceSimilarity.html')))
-app.get('/bbt_face_matching', (req, res) => res.sendFile(path.join(viewsDir, 'bbtFaceMatching.html')))
-app.get('/bbt_face_recognition', (req, res) => res.sendFile(path.join(viewsDir, 'bbtFaceRecognition.html')))
-app.get('/batch_face_landmarks', (req, res) => res.sendFile(path.join(viewsDir, 'batchFaceLandmarks.html')))
-app.get('/batch_face_recognition', (req, res) => res.sendFile(path.join(viewsDir, 'batchFaceRecognition.html')))
 
 app.post('/fetch_external_image', async (req, res) => {
   const { imageUrl } = req.body
@@ -45,10 +35,11 @@ app.post('/fetch_external_image', async (req, res) => {
   }
 })
 
-app.listen(3000, () => console.dir({
+app.listen(3500, () => console.dir({
   author : "M.RIZKI ISWANTO <muhammadrzki96@gmail.com>",
+  alias : "REXY4",
   message : "face recognation",
-  listen : "running on "
+  listen : "running on port http://localhost:3500"
 }))
 
 function request(url, returnBuffer = true, timeout = 10000) {
